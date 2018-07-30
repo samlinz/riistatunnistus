@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiistaTunnistusOhjelma", "RiistaTunnistusOhjelma\RiistaTunnistusOhjelma.csproj", "{DC6C2521-05D1-43B3-A7C0-B308CFF818CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "RiistaTunnistusOhjelma\FrontEnd.csproj", "{DC6C2521-05D1-43B3-A7C0-B308CFF818CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackEnd", "BackEnd\BackEnd.csproj", "{6146684A-EE43-4731-97B0-11D3198FCDE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackendTest", "Tests\BackendTest.csproj", "{CF979732-F7C3-414B-908C-E6A8F4E817B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{DC6C2521-05D1-43B3-A7C0-B308CFF818CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC6C2521-05D1-43B3-A7C0-B308CFF818CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC6C2521-05D1-43B3-A7C0-B308CFF818CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6146684A-EE43-4731-97B0-11D3198FCDE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6146684A-EE43-4731-97B0-11D3198FCDE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6146684A-EE43-4731-97B0-11D3198FCDE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6146684A-EE43-4731-97B0-11D3198FCDE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF979732-F7C3-414B-908C-E6A8F4E817B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF979732-F7C3-414B-908C-E6A8F4E817B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF979732-F7C3-414B-908C-E6A8F4E817B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF979732-F7C3-414B-908C-E6A8F4E817B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

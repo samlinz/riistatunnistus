@@ -1,0 +1,28 @@
+{
+  "Hirvieläimet": {
+    "Hirvi": "hirvi",
+    "Valkohäntäpeura": "valkohantapeura",
+    "Kuusipeura": "kuusipeura",
+    "Metsäkauris": "metsakauris",
+    "Metsäpeura": "metsapeura",
+    "Poro": "poro",
+    "Saksanhirvi": "saksanhirvi"
+  },
+  "Hylkeet": {
+    "Itämerennorppa": "itamerennorppa",
+    "Harmaahylje": "harmaahylje",
+    "Kirjohylje": "kirjohylje"
+  },
+  "Jäniseläimet": {
+    "Rusakko": "rusakko",
+    "Metsäjänis": "metsajanis"
+  },
+  "Jyrsijät": {
+    "Piisami": "piisami",
+    "Orava": "orava",
+    "Euroopanmajava": "euroopanmajava",
+    "Kanadanmajava": "kanadanmajava",
+    "Rämemajava": "ramemajava",
+    "Liito-orava": "liitoorava"
+  }
+}
