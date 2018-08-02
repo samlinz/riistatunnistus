@@ -23,6 +23,8 @@ namespace BackEnd.Model.Instance {
 		private Task timeoutTask;
 		private readonly TimeSpan? _timeoutDelay;
 
+		private volatile bool _exited = false;
+
 		/// <summary>
 		/// Construct game handler instance.
 		/// </summary>
@@ -43,12 +45,13 @@ namespace BackEnd.Model.Instance {
 
 			_frontEnd.OnChoice += OnChoiceFromFrontend;
 			_frontEnd.OnStart += OnStarted;
+			_frontEnd.OnExit += OnExit;
 		}
 
 		// Events
 		internal event Action QuestionTimeout;
 		internal event Action AnswerCorrect;
-		internal event Action AnswerWrong;
+		internal event Action<string> AnswerWrong;
 
 		/// <summary>
 		/// Handle choice made from frontend.
@@ -62,6 +65,7 @@ namespace BackEnd.Model.Instance {
 				return;
 			}
 
+			_lastArgument = input;
 			_eventSignal.Set();
 		}
 
@@ -70,6 +74,16 @@ namespace BackEnd.Model.Instance {
 		/// </summary>
 		private void OnStarted() {
 			Logger.Info("GameHandler starting.");
+			_eventSignal.Set();
+		}
+
+		/// <summary>
+		/// Handle explicit exit event from frontend.
+		/// </summary>
+		private void OnExit() {
+			Logger.Info("Frontend exited from game.");
+			_exited = true;
+
 			_eventSignal.Set();
 		}
 
@@ -87,9 +101,22 @@ namespace BackEnd.Model.Instance {
 		/// <param name="ct">CancellationToken to cancel timeout.</param>
 		/// <returns></returns>
 		private async Task Timeout(CancellationToken ct) {
-			await Task.Delay(_timeoutDelay.Value, ct);
-			if (ct.IsCancellationRequested)
-				return;
+			TimeSpan timeout = _timeoutDelay.Value;
+			DateTime started = DateTime.UtcNow;
+			DateTime ends = started + timeout;
+
+			while (DateTime.UtcNow - started < timeout) {
+				await Task.Delay(10, ct);
+				if (ct.IsCancellationRequested)
+					return;
+
+				TimeSpan currentTimeSpan
+					= ends - DateTime.UtcNow;
+				double percentage
+					= currentTimeSpan.TotalMilliseconds / timeout.TotalMilliseconds;
+
+				_frontEnd.OnProgress((int) (percentage * 100));
+			}
 
 			Logger.Info("Timeout!");
 			_lastArgument = "timeout" + Guid.NewGuid();
@@ -104,15 +131,16 @@ namespace BackEnd.Model.Instance {
 			Boolean running = true;
 			GameState _currentState = GameState.NotStarted;
 			GameQuestion currentQuestion = null;
-			CancellationTokenSource cts = new CancellationTokenSource();
 
 			while (running) {
+				CancellationTokenSource cts = new CancellationTokenSource();
 				if (_timeoutDelay.HasValue) {
 					timeoutTask = Timeout(cts.Token);
 				}
 
 				// Wait for a signal
 				_eventSignal.WaitOne();
+				if (_exited) break;
 
 				// Update state with input
 				GameQuestion previousQuestion = currentQuestion;
@@ -125,13 +153,15 @@ namespace BackEnd.Model.Instance {
 					cts.Cancel();
 				}
 
-				if (previousQuestion.Done) {
-					// Call UI to inform the user about answer correctness.
-					if (previousQuestion.Correct)
-						AnswerCorrect();
-					else AnswerWrong();
-				} else {
-					throw new InvalidOperationException("Previous question was not marked as done.");
+				if (previousQuestion != null) {
+					if (previousQuestion.Done) {
+						// Call UI to inform the user about answer correctness.
+						if (previousQuestion.Correct)
+							AnswerCorrect();
+						else AnswerWrong(previousQuestion.CorrectAnswer);
+					} else {
+						throw new InvalidOperationException("Previous question was not marked as done.");
+					}
 				}
 
 				// Handle new state

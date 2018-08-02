@@ -23,8 +23,16 @@ namespace BackEnd.Model {
 				throw new FileNotFoundException($"Species file {speciesFile} not found.");
 
 			string speciesFileText = File.ReadAllText(speciesFile);
+
+			JsonSerializerSettings deSerializerSettings = new JsonSerializerSettings {
+				Converters = new List<JsonConverter> {
+					new SpeciesFileDescriptionConverter()
+				}
+			};
+
 			var speciesFileDescription
-				= JsonConvert.DeserializeObject<SpeciesFileDescription>(speciesFileText);
+				= JsonConvert.DeserializeObject<SpeciesFileDescription>(
+					speciesFileText, deSerializerSettings);
 
 			if (speciesFileDescription == null)
 				throw new InvalidOperationException("Species json was in invalid form.");

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.IO;
 
 namespace BackEnd {
@@ -16,7 +17,7 @@ namespace BackEnd {
 		/// <summary>
 		///     Allowed image extensions; case insensitive.
 		/// </summary>
-		internal static readonly String[] ImageExtensions = {
+		internal static readonly string[] ImageExtensions = {
 			"png",
 			"jpg",
 			"bmp"
@@ -25,11 +26,11 @@ namespace BackEnd {
 		/// <summary>
 		///     Species configuration file.
 		/// </summary>
-		internal static readonly String SpeciesFile = Path.Combine(DataFolder, "data.json");
+		internal static readonly string SpeciesFile = Path.Combine(DataFolder, "data.json");
 
 		/// <summary>
 		///     Base directory for images.
 		/// </summary>
-		internal static readonly String ImageDirectory = Path.Combine(DataFolder, ImageFolder);
+		internal static readonly string ImageDirectory = Path.Combine(DataFolder, ImageFolder);
 	}
 }

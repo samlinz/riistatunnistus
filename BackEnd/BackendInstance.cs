@@ -63,7 +63,7 @@ namespace BackEnd {
 						IEnumerable<Species> childrenSpecies
 							= new List<Species>(speciesMappings.Count);
 
-						childrenSpecies
+						childrenSpecies = childrenSpecies
 							.Concat(speciesMappings.Select(
 								s => SpeciesFactory.GetSpecies(s, parentClass)));
 

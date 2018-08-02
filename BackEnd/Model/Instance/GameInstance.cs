@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using BackEnd.Model.GameInstance;
 using log4net;
 
@@ -14,8 +13,8 @@ namespace BackEnd.Model.Instance {
 		private static readonly ILog Logger = Logging.GetLogger();
 
 		private readonly Guid _guid = Guid.NewGuid();
-		private readonly Queue<GameQuestion> _imagesDone = new Queue<GameQuestion>();
 
+		private readonly Queue<GameQuestion> _imagesDone = new Queue<GameQuestion>();
 		private readonly Queue<GameQuestion> _imagesInQueue = new Queue<GameQuestion>();
 
 		// Current displayed question
@@ -38,7 +37,9 @@ namespace BackEnd.Model.Instance {
 		/// </summary>
 		/// <returns>True if questions have ended.</returns>
 		private bool NextQuestion() {
-			_imagesDone.Enqueue(_currentQuestion);
+			if (_currentQuestion != null)
+				_imagesDone.Enqueue(_currentQuestion);
+
 			if (_imagesInQueue.Count == 0) {
 				Logger.Info("All questions done.");
 				return true;

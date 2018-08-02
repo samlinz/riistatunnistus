@@ -30,8 +30,7 @@ namespace BackEnd.Model.Factories {
 				if (!Constants.ImageExtensions.Any(ext => fileLower.EndsWith(ext))) {
 					Logger.Warn($"Found file in species folders without correct extension: {file}");
 				} else {
-					String fullPath = Path.Combine(directory, file);
-					SpeciesImage speciesImage = new SpeciesImage(fullPath);
+					SpeciesImage speciesImage = new SpeciesImage(file);
 					speciesImages.Add(speciesImage);
 				}
 			}

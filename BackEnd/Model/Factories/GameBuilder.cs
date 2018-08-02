@@ -15,6 +15,7 @@ namespace BackEnd.Model {
 	/// </summary>
 	internal class GameBuilder {
 		private static readonly ILog Logger = Logging.GetLogger();
+		private const int MAX_PICK_ITERATIONS = 10;
 
 		/// <summary>
 		/// Injected random number generator.
@@ -84,43 +85,78 @@ namespace BackEnd.Model {
 				Int32 newSpeciesIndex = _rng.Next(allowedSpecies.Count);
 				Species pickedSpecies = allowedSpecies[newSpeciesIndex];
 
-				if (!settings.AllowDuplicates && usedSpecies.Contains(pickedSpecies))
+				if (!settings.AllowDuplicates
+					&& usedSpecies.Contains(pickedSpecies)
+					&& usedSpecies.Count < allowedSpecies.Count)
 					continue;
+
+				// Pick a preferably unused image from picked species.
 
 				Boolean imageUsed = false;
 				Int32 imagePickIteration = 0;
 				SpeciesImage pickedImage;
-				do {
-					Int32 speciesImageCount = pickedSpecies.Images.Count;
-					if (speciesImageCount == 0)
-						throw new InvalidOperationException($"Species {pickedSpecies.Name} has no images.");
 
+				bool allImagesUsed = false;
+
+				IReadOnlyList<SpeciesImage> allowedImages
+					= pickedSpecies
+						.Images
+						.Where(psi => !usedImages.Contains(psi))
+						.ToList();
+
+				if (!allowedImages.Any()) {
+					allowedImages = pickedSpecies.Images;
+					allImagesUsed = true;
+				}
+
+				Int32 speciesImageCount = allowedImages.Count;
+				if (speciesImageCount == 0)
+					throw new InvalidOperationException($"Species {pickedSpecies.Name} has no images.");
+
+				do {
 					Int32 newImageIndex = _rng.Next(speciesImageCount);
-					pickedImage = pickedSpecies.Images[newImageIndex];
-					if (usedImages.Contains(pickedImage))
+					pickedImage = allowedImages[newImageIndex];
+
+					if (!allImagesUsed && usedImages.Contains(pickedImage))
 						imageUsed = true;
 
 					ISet<SpeciesClass> pickedSpeciesClasses
 						= pickedSpecies.Classes;
 
 					// Get settings.NumberOfChoices alternatives to present with the correct answer.
+					IEnumerable<Species> alternativeSource
+						= allowedSpecies.Where(
+							species => species.Classes.Any(
+								speciesClass => pickedSpeciesClasses.Contains(speciesClass)
+							));
+
+					if (!settings.GetChoicesFromSameClass) {
+						alternativeSource = _allSpecies;
+					}
+
+					// Shuffle.
+					alternativeSource
+						= alternativeSource
+							.OrderBy(s => Guid.NewGuid())
+							.ToList();
+
 					IList<Species> possibleSpecies =
-						allowedSpecies
-							.Where(
-								species => species.Classes.Any(
-									speciesClass => pickedSpeciesClasses.Contains(speciesClass)
-									)
-								)
+						alternativeSource
 							.Where(species => species != pickedSpecies)
-							.Take(settings.NumberOfChoices)
+							.Take(settings.NumberOfChoices - 1)
 							.Concat(new List<Species> { pickedSpecies })
+							.OrderBy(s => Guid.NewGuid())
 							.ToList();
 
 					gameImages.AddLast(GetGameQuestion(pickedSpecies, possibleSpecies, pickedImage));
 
 					// ImagePickIteration prevents loop from hanging in borderline cases.
 					imagePickIteration++;
-				} while (imagePickIteration < 10 && imageUsed);
+				} while (imagePickIteration < MAX_PICK_ITERATIONS && imageUsed);
+
+				if (imagePickIteration == MAX_PICK_ITERATIONS) {
+					Logger.Warn("Exceeded the iterations trying to pick unique images; reusing");
+				}
 
 				// Track picked species and images.
 				usedSpecies.Add(pickedSpecies);
@@ -146,8 +182,8 @@ namespace BackEnd.Model {
 		/// <param name="settings">Instance of game settings.</param>
 		/// <returns>Boolean indicating if the settings are valid.</returns>
 		private bool IsGameSettingsValid(GameSettings settings) {
-			if (settings.NumberOfQuestions == 0) return false;
-			if (settings.NumberOfChoices <= 1) return false;
+			if (settings.NumberOfQuestions <= 1) return false;
+			if (settings.NumberOfChoices <= 2) return false;
 			if (settings.InputStyle == InputStyle.Unkown) return false;
 
 			return true;
