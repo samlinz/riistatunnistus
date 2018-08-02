@@ -23,6 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.speciesImage = new System.Windows.Forms.PictureBox();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -56,6 +57,7 @@
 			this.speciesImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.speciesImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.speciesImage.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.speciesImage.InitialImage = null;
 			this.speciesImage.Location = new System.Drawing.Point(3, 3);
 			this.speciesImage.Name = "speciesImage";
 			this.speciesImage.Size = new System.Drawing.Size(794, 354);
@@ -119,6 +121,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.tableLayoutPanel1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.KeyPreview = true;
 			this.Name = "Game";
 			this.Text = "RiistaTunnistusOhjelma";

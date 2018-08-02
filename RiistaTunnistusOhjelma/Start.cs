@@ -17,6 +17,7 @@ namespace RiistaTunnistusOhjelma {
 		private readonly SignalHandler _signalHandler;
 		private readonly BackendInstance _backend;
 		private readonly UIAdapterImplementation _ui;
+		private readonly SoundTool _soundPlayer;
 
 		private readonly IEnumerable<SpeciesClass> _allSpeciesClasses;
 
@@ -32,12 +33,14 @@ namespace RiistaTunnistusOhjelma {
 			SignalHandler signalHandler
 			, BackendInstance backend
 			, UIAdapterImplementation uiAdapter
+			, SoundTool soundPlayer
 			, GameSettings settings
 			, string[] infoText) {
 			_signalHandler = signalHandler;
 			_backend = backend;
 			_settings = settings;
 			_ui = uiAdapter;
+			_soundPlayer = soundPlayer;
 
 			_allSpeciesClasses = _settings.SpeciesClasses;
 
@@ -100,7 +103,7 @@ namespace RiistaTunnistusOhjelma {
 			Task.Run(() => _backend.StartGame(_settings));
 
 			// Create and show the game form.
-			Game gameForm = new Game(_settings, _ui) {
+			Game gameForm = new Game(_settings, _ui, _soundPlayer) {
 				Location = Location,
 				StartPosition = FormStartPosition.Manual
 			};

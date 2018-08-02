@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
@@ -44,6 +45,13 @@ namespace RiistaTunnistusOhjelma {
 			IEnumerable<SpeciesClass> loadedSpeciesClasses
 				= SpeciesUtils.GetSpeciesClasses(loadedSpecies);
 
+			const string soundDirectory = "assets";
+			SoundTool player = new SoundTool();
+			player.AddSound(SoundEffect.Correct, Path.Combine(soundDirectory, "correct.wav"));
+			player.AddSound(SoundEffect.Wrong, Path.Combine(soundDirectory, "wrong.wav"));
+			player.AddSound(SoundEffect.Error, Path.Combine(soundDirectory, "error.wav"));
+			player.AddSound(SoundEffect.Done, Path.Combine(soundDirectory, "done.wav"));
+
 			// Initialize default settings.
 			GameSettings settings = new GameSettings {
 				InputStyle = InputStyle.MultiChoice,
@@ -62,6 +70,7 @@ namespace RiistaTunnistusOhjelma {
 						globalSignalHandler
 						, backend
 						, winUi
+						, player
 						, settings
 						, infoText
 					);

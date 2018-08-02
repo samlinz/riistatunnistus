@@ -24,5 +24,100 @@
     "Kanadanmajava": "kanadanmajava",
     "Rämemajava": "ramemajava",
     "Liito-orava": "liitoorava"
+  },
+  "Koiraeläimet": {
+    "Supikoira": "supikoira",
+    "Kettu": "kettu",
+    "Naali": "naali",
+    "Susi": "susi"
+  },
+  "Näätäeläimet": {
+    "Näätä": "näätä",
+    "Minkki": "minkki",
+    "Hilleri": "hilleri",
+    "Vesikko": "vesikko",
+    "Saukko": "saukko",
+    "Mäyrä": "mayra",
+    "Ahma": "ahma",
+    "Kärppä": "karppa"
+  },
+  "Muut nisäkkäät": {
+    "Ilves": "ilves",
+    "Karhu": "karhu",
+    "Villisika": "villisika",
+    "Mufloni": "mufloni",
+    "Pesukarhu": "Pesukarhu"
+  },
+  "Sorsalinnut": {
+    "Sinisorsa": "sinisorsa",
+    "Jouhisorsa": "jouhisorsa",
+    "Haapana": "haapana",
+    "Harmaasorsa": "harmaasorsa",
+    "Lapasorsa": "lapasorsa",
+    "Heinätavi": "heinatavi",
+    "Tavi": "tavi",
+    "Haahka": "haahka",
+    "Isokoskelo": "isokoskelo",
+    "Tukkakoskelo": "tukkakoskelo",
+    "Uivelo": "uivelo",
+    "Telkkä": "telkka",
+    "Tukkasotka": "tukkasotka",
+    "Lapasotka": "lapasotka",
+    "Punasotka": "punasotka",
+    "Alli": "alli",
+    "Mustalintu": "mustalintu",
+    "Pilkkasiipi": "pilkkasiipi",
+    "Nokikana": "nokikana"
+  },
+  "Hanhet": {
+    "Merihanhi": "merihanhi",
+    "Metsähanhi": "metsahanhi",
+    "Lyhytnokkahanhi": "lyhytnokkahanhi",
+    "Tundrahanhi": "tundrahanhi",
+    "Kiljuhanhi": "kiljuhanhi",
+    "Kanadanhanhi": "kanadanhanhi",
+    "Valkoposkihanhi": "valkoposkihanhi",
+    "Sepelhanhi": "sepelhanhi"
+  },
+  "Varislinnut": {
+    "Varis": "varis",
+    "Mustavaris": "mustavaris",
+    "Naakka": "naakka",
+    "Korppi": "korppi",
+    "Harakka": "harakka"
+  },
+  "Rastaat": {
+    "Räkättirastas": "rakattirastas",
+    "Kulorastas": "kulorastas",
+    "Laulurastas": "laulurastas",
+    "Punakylkirastas": "punakylkirastas"
+  },
+  "Muut linnut": {
+    "Ristisorsa": "ristisorsa",
+    "Lehtokurppa": "lehtokurppa",
+    "Jänkäkurppa": "jankakurppa",
+    "Taivaanvuohi": "taivaanvuohi"
+  },
+  "Metsäkanalinnut": {
+    "Metso": "metso",
+    "Teeri": "teeri",
+    "Pyy": "pyy",
+    "Riekko": "riekko",
+    "Kiiruna": "kiiruna"
+  },
+  "Peltokanalinnut": {
+    "Peltopyy": "peltopyy",
+    "Fasaani": "fasaani"
+  },
+  "Kyyhkyt": {
+    "Sepelkyyhky": "sepelkyyhky",
+    "Uuttukyyhky": "uuttukyyhky",
+    "Kesykyyhky": "kesykyyhky"
+  },
+  "Lokit": {
+    "Merilokki": "merilokki",
+    "Selkälokki": "selkalokki",
+    "Harmaalokki": "harmaalokki",
+    "Kalalokki": "kalalokki"
   }
 }

@@ -106,6 +106,7 @@
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>XCOPY "$(SolutionDir)data" "$(TargetDir)\data\" /S /Y</PostBuildEvent>
+    <PostBuildEvent>robocopy "$(SolutionDir)data" "$(TargetDir)\data" /E /is
+exit 0</PostBuildEvent>
   </PropertyGroup>
 </Project>

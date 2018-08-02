@@ -23,6 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RiistaTunnistusOhjelma));
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.info = new System.Windows.Forms.GroupBox();
 			this.infoBox = new System.Windows.Forms.TextBox();
@@ -76,7 +77,7 @@
 			this.tableLayoutPanel1.RowCount = 2;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 561);
 			this.tableLayoutPanel1.TabIndex = 0;
 			// 
 			// info
@@ -85,7 +86,7 @@
 			this.info.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.info.Location = new System.Drawing.Point(3, 3);
 			this.info.Name = "info";
-			this.info.Size = new System.Drawing.Size(394, 294);
+			this.info.Size = new System.Drawing.Size(394, 368);
 			this.info.TabIndex = 1;
 			this.info.TabStop = false;
 			this.info.Text = "Tietoja";
@@ -97,7 +98,7 @@
 			this.infoBox.Multiline = true;
 			this.infoBox.Name = "infoBox";
 			this.infoBox.ReadOnly = true;
-			this.infoBox.Size = new System.Drawing.Size(388, 275);
+			this.infoBox.Size = new System.Drawing.Size(388, 349);
 			this.infoBox.TabIndex = 0;
 			this.infoBox.Text = "Ladataan tietoja...";
 			// 
@@ -107,7 +108,7 @@
 			this.settings.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.settings.Location = new System.Drawing.Point(403, 3);
 			this.settings.Name = "settings";
-			this.settings.Size = new System.Drawing.Size(394, 294);
+			this.settings.Size = new System.Drawing.Size(394, 368);
 			this.settings.TabIndex = 2;
 			this.settings.TabStop = false;
 			this.settings.Text = "Asetukset";
@@ -119,7 +120,7 @@
 			this.optionsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.optionsPanel.Location = new System.Drawing.Point(3, 16);
 			this.optionsPanel.Name = "optionsPanel";
-			this.optionsPanel.Size = new System.Drawing.Size(388, 275);
+			this.optionsPanel.Size = new System.Drawing.Size(388, 349);
 			this.optionsPanel.TabIndex = 0;
 			// 
 			// settingsFlowPanel
@@ -140,7 +141,7 @@
 			this.settingsFlowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
 			this.settingsFlowPanel.Location = new System.Drawing.Point(0, 0);
 			this.settingsFlowPanel.Name = "settingsFlowPanel";
-			this.settingsFlowPanel.Size = new System.Drawing.Size(388, 275);
+			this.settingsFlowPanel.Size = new System.Drawing.Size(388, 349);
 			this.settingsFlowPanel.TabIndex = 0;
 			this.settingsFlowPanel.WrapContents = false;
 			// 
@@ -160,14 +161,14 @@
 			this.settingsClasses.Location = new System.Drawing.Point(3, 16);
 			this.settingsClasses.Name = "settingsClasses";
 			this.settingsClasses.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.settingsClasses.Size = new System.Drawing.Size(204, 96);
+			this.settingsClasses.Size = new System.Drawing.Size(204, 150);
 			this.settingsClasses.TabIndex = 0;
 			this.settingsClasses.MouseUp += new System.Windows.Forms.MouseEventHandler(this.settingsClasses_MouseUp);
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(3, 115);
+			this.label1.Location = new System.Drawing.Point(3, 169);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(204, 13);
 			this.label1.TabIndex = 3;
@@ -175,7 +176,7 @@
 			// 
 			// settingsTimeout
 			// 
-			this.settingsTimeout.Location = new System.Drawing.Point(3, 131);
+			this.settingsTimeout.Location = new System.Drawing.Point(3, 185);
 			this.settingsTimeout.Name = "settingsTimeout";
 			this.settingsTimeout.Size = new System.Drawing.Size(120, 20);
 			this.settingsTimeout.TabIndex = 2;
@@ -184,7 +185,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(3, 154);
+			this.label2.Location = new System.Drawing.Point(3, 208);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(80, 13);
 			this.label2.TabIndex = 4;
@@ -192,7 +193,7 @@
 			// 
 			// settingsQuestions
 			// 
-			this.settingsQuestions.Location = new System.Drawing.Point(3, 170);
+			this.settingsQuestions.Location = new System.Drawing.Point(3, 224);
 			this.settingsQuestions.Minimum = new decimal(new int[] {
             1,
             0,
@@ -211,7 +212,7 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(3, 193);
+			this.label3.Location = new System.Drawing.Point(3, 247);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(110, 13);
 			this.label3.TabIndex = 8;
@@ -219,7 +220,7 @@
 			// 
 			// settingsChoices
 			// 
-			this.settingsChoices.Location = new System.Drawing.Point(3, 209);
+			this.settingsChoices.Location = new System.Drawing.Point(3, 263);
 			this.settingsChoices.Minimum = new decimal(new int[] {
             2,
             0,
@@ -238,7 +239,7 @@
 			// settingsFromSameClass
 			// 
 			this.settingsFromSameClass.AutoSize = true;
-			this.settingsFromSameClass.Location = new System.Drawing.Point(3, 235);
+			this.settingsFromSameClass.Location = new System.Drawing.Point(3, 289);
 			this.settingsFromSameClass.Name = "settingsFromSameClass";
 			this.settingsFromSameClass.Size = new System.Drawing.Size(168, 17);
 			this.settingsFromSameClass.TabIndex = 7;
@@ -249,7 +250,7 @@
 			// settingsAllowDuplicates
 			// 
 			this.settingsAllowDuplicates.AutoSize = true;
-			this.settingsAllowDuplicates.Location = new System.Drawing.Point(3, 258);
+			this.settingsAllowDuplicates.Location = new System.Drawing.Point(3, 312);
 			this.settingsAllowDuplicates.Name = "settingsAllowDuplicates";
 			this.settingsAllowDuplicates.Size = new System.Drawing.Size(195, 17);
 			this.settingsAllowDuplicates.TabIndex = 10;
@@ -261,7 +262,7 @@
 			// 
 			this.groupBox2.AutoSize = true;
 			this.groupBox2.Controls.Add(this.flowLayoutPanel1);
-			this.groupBox2.Location = new System.Drawing.Point(3, 281);
+			this.groupBox2.Location = new System.Drawing.Point(3, 335);
 			this.groupBox2.Name = "groupBox2";
 			this.groupBox2.Size = new System.Drawing.Size(101, 65);
 			this.groupBox2.TabIndex = 6;
@@ -310,9 +311,9 @@
 			this.tableLayoutPanel1.SetColumnSpan(this.groupBox1, 2);
 			this.groupBox1.Controls.Add(this.tableLayoutPanel2);
 			this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBox1.Location = new System.Drawing.Point(3, 303);
+			this.groupBox1.Location = new System.Drawing.Point(3, 377);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(794, 144);
+			this.groupBox1.Size = new System.Drawing.Size(794, 181);
 			this.groupBox1.TabIndex = 3;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Toiminnot";
@@ -331,7 +332,7 @@
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
 			this.tableLayoutPanel2.RowCount = 1;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(788, 125);
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(788, 162);
 			this.tableLayoutPanel2.TabIndex = 0;
 			// 
 			// startGameButton
@@ -340,7 +341,7 @@
 			this.startGameButton.Location = new System.Drawing.Point(3, 3);
 			this.startGameButton.Name = "startGameButton";
 			this.startGameButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.startGameButton.Size = new System.Drawing.Size(256, 119);
+			this.startGameButton.Size = new System.Drawing.Size(256, 156);
 			this.startGameButton.TabIndex = 0;
 			this.startGameButton.Text = "Aloita";
 			this.startGameButton.UseVisualStyleBackColor = true;
@@ -351,7 +352,7 @@
 			this.clearDataButton.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.clearDataButton.Location = new System.Drawing.Point(265, 3);
 			this.clearDataButton.Name = "clearDataButton";
-			this.clearDataButton.Size = new System.Drawing.Size(256, 119);
+			this.clearDataButton.Size = new System.Drawing.Size(256, 156);
 			this.clearDataButton.TabIndex = 1;
 			this.clearDataButton.Text = "Tyhjennä tiedot";
 			this.clearDataButton.UseVisualStyleBackColor = true;
@@ -362,7 +363,7 @@
 			this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.button3.Location = new System.Drawing.Point(527, 3);
 			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(258, 119);
+			this.button3.Size = new System.Drawing.Size(258, 156);
 			this.button3.TabIndex = 2;
 			this.button3.Text = "🅱️";
 			this.button3.UseVisualStyleBackColor = true;
@@ -371,8 +372,9 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(800, 561);
 			this.Controls.Add(this.tableLayoutPanel1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "RiistaTunnistusOhjelma";
 			this.Text = "RiistaTunnistusOhjelma";
 			this.tableLayoutPanel1.ResumeLayout(false);

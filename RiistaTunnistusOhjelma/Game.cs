@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Security.Policy;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BackEnd;
 using BackEnd.Model.Instance;
 using log4net;
-using log4net.Repository.Hierarchy;
 
 namespace RiistaTunnistusOhjelma {
 	/// <summary>
@@ -25,6 +23,7 @@ namespace RiistaTunnistusOhjelma {
 		// Injected dependecies.
 		private readonly GameSettings _settings;
 		private readonly UIAdapterImplementation _ui;
+		private readonly SoundTool _soundPlayer;
 
 		private bool _started = false;
 
@@ -33,9 +32,11 @@ namespace RiistaTunnistusOhjelma {
 		/// </summary>
 		/// <param name="settings">Injected game settings.</param>
 		/// <param name="ui">Injected UI adapter.</param>
-		internal Game(GameSettings settings, UIAdapterImplementation ui) {
+		/// <param name="soundPlayer">Injected sound player.</param>
+		internal Game(GameSettings settings, UIAdapterImplementation ui, SoundTool soundPlayer) {
 			_settings = settings;
 			_ui = ui;
+			_soundPlayer = soundPlayer;
 
 			_ui.RegisterUserInterface(this);
 
@@ -110,15 +111,26 @@ namespace RiistaTunnistusOhjelma {
 			string text = $"Sait {finalResult.CorrectAnswers}"
 						+ $" oikein {finalResult.TotalAnswers} kysymyksestä.";
 
+			_soundPlayer.PlaySound(SoundEffect.Done);
 			MessageBox.Show(text, "Peli ohi!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 			_ui.UnregisterUserInterface(this);
-			Close();
+			ChangeUI(Close);
 		}
 
 		internal void WrongAnswer(string correct) {
 			string text = $"Oikea vastaus oli {correct.ToUpperInvariant()}";
+
+			_soundPlayer.PlaySound(SoundEffect.Wrong);
 			MessageBox.Show(text, "Väärä vastaus!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+		}
+
+		internal void CorrectAnswer() {
+			_soundPlayer.PlaySound(SoundEffect.Correct);
+		}
+
+		internal void Error() {
+			_soundPlayer.PlaySound(SoundEffect.Error);
 		}
 
 		/// <summary>

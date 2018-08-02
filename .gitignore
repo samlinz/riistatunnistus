@@ -269,3 +269,6 @@ data/**/*.bmp
 data/**/*.BMP
 data/**/*.gif
 data/**/*.GIF
+data/**/*.jpeg
+data/**/*.JPEG
+data/**/*.image

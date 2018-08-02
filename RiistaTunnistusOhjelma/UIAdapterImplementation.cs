@@ -28,6 +28,8 @@ namespace RiistaTunnistusOhjelma {
 		public override void OnError(String error) {
 			Logger.Error($"Received error; {error}");
 
+			_ui.Error();
+
 			// Show message box.
 			MessageBox.Show(
 				$"Ohjelma koki virhetilanteen ja sammutetaan. Virhe: {error}"
@@ -54,6 +56,7 @@ namespace RiistaTunnistusOhjelma {
 		public override void OnAnswerCorrect() {
 			if (!uiRegistered) return;
 			Logger.Info("Correct answer!");
+			_ui.CorrectAnswer();
 		}
 
 		public override void OnAnswerWrong(string correct) {

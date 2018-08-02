@@ -211,6 +211,10 @@ namespace Tests {
 			_stateUpdated = true;
 		}
 
+		public override void OnProgress(Int32 percent) {
+			throw new NotImplementedException();
+		}
+
 		public override void OnNewQuestion(Image image, String[] alternatives, String correct) {
 			Image = image;
 			Alternatives = alternatives;
@@ -233,7 +237,7 @@ namespace Tests {
 			_stateUpdated = true;
 		}
 
-		public override void OnAnswerWrong() {
+		public override void OnAnswerWrong(string correct) {
 			IsWrong = true;
 
 			_stateUpdated = true;
