@@ -34,7 +34,8 @@ namespace BackEnd {
 			try {
 				gameHandler.Process();
 			} catch (Exception ex) {
-				Logger.Fatal($"Received error from GameHandler: {ex.Message}");
+				Logger.Fatal($"Received error from GameHandler: {ex.Message}.");
+				Logger.Debug($"Stacktrace: {ex.StackTrace}.");
 				_ui.OnError(ex.Message);
 			}
 		}

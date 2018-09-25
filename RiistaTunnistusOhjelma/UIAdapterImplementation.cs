@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -59,10 +60,10 @@ namespace RiistaTunnistusOhjelma {
 			_ui.CorrectAnswer();
 		}
 
-		public override void OnAnswerWrong(string correct) {
+		public override void OnAnswerWrong(string correct, string[] hints) {
 			if (!uiRegistered) return;
 			Logger.Info("Wrong answer!");
-			_ui.WrongAnswer(correct);
+			_ui.WrongAnswer(correct, hints);
 		}
 
 		public override void OnTimeout() {

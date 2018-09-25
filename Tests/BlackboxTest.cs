@@ -237,7 +237,7 @@ namespace Tests {
 			_stateUpdated = true;
 		}
 
-		public override void OnAnswerWrong(string correct) {
+		public override void OnAnswerWrong(string correct, string[] hints) {
 			IsWrong = true;
 
 			_stateUpdated = true;

@@ -201,6 +201,8 @@ namespace BackEnd.Model {
 			=> new GameQuestion(image.Image) {
 				Correct = false,
 				Done = false,
+				Hints
+					= correctSpecies.Hints.ToArray(),
 				CorrectAnswer
 					= correctSpecies.Name.ToLower(
 						CultureInfo.InvariantCulture),

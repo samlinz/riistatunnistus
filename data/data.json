@@ -9,8 +9,8 @@
     "Saksanhirvi": "saksanhirvi"
   },
   "Hylkeet": {
-    "Itämerennorppa": "itamerennorppa",
-    "Harmaahylje": "harmaahylje",
+    "Itämerennorppa": ["itamerennorppa", "Väritys vaihtelee.", "Selkäpuolella kiehkurakuvioita.", "Kuono lyhyt.", "Selvä otsapenger sivuprofiilissa."],
+    "Harmaahylje": ["harmaahylje", "Suurin hylkeistä.", "Karvapeitteen pohjaväri harmaa.", "Tummia täpliä.", "Pää iso, kiilamainen."],
     "Kirjohylje": "kirjohylje"
   },
   "Jäniseläimet": {
@@ -50,47 +50,47 @@
   },
   "Sorsalinnut": {
     "Sinisorsa": "sinisorsa",
-    "Jouhisorsa": "jouhisorsa",
-    "Haapana": "haapana",
-    "Harmaasorsa": "harmaasorsa",
+    "Jouhisorsa": ["jouhisorsa", "Naaraalla punertava pää."],
+    "Haapana": ["haapana", "Siipien alapinnat tummat.", "Valkoinen vatsa.", "Koiraalla punainen pää ja valkoinen otsa.", "Naaras tummanpunertava.", "Naaraalla tummempi päälaki."],
+    "Harmaasorsa": ["harmaasorsa", "Siipien alapuoli valkoinen, tyvessä valkoinen laikku.", "Valkoinen laaja vatsalaikku.", "Siipien alapinnat valkoiset."],
     "Lapasorsa": "lapasorsa",
-    "Heinätavi": "heinatavi",
+    "Heinätavi": ["heinatavi", "Uroksella silmän yläpuolella paksu valkoinen raita.", "Naaraalla kasvojen läpi kaksi vaaleaa ohuempaa raitaa (myös sinisorsalla).", "Naaras haalean värinen."],
     "Tavi": "tavi",
     "Haahka": "haahka",
-    "Isokoskelo": "isokoskelo",
+    "Isokoskelo": ["isokoskelo", "Koiraalla ei töyhtöä.", "Naaraalla valkoinen kaula verrattuna tukkakoskelonaaraaseen."],
     "Tukkakoskelo": "tukkakoskelo",
-    "Uivelo": "uivelo",
+    "Uivelo": ["uivelo", "Uros valkoinen, musta silmänympärys.", "Naaras punertava pää ja valkoinen kaula."],
     "Telkkä": "telkka",
-    "Tukkasotka": "tukkasotka",
-    "Lapasotka": "lapasotka",
-    "Punasotka": "punasotka",
+    "Tukkasotka": ["tukkasotka", "Naaraalla pieni töyhtö takaraivossa." ],
+    "Lapasotka": ["lapasotka", "Leveä nokka.", "Naaralla valkoinen osa ennen nokkaa ja vaalea poski."],
+    "Punasotka": ["punasotka", "Naaraalla vaalea raita naaman läpi."],
     "Alli": "alli",
-    "Mustalintu": "mustalintu",
-    "Pilkkasiipi": "pilkkasiipi",
+    "Mustalintu": ["mustalintu", "Pikimusta uros", "Naaras musta, valkoinen pään alaosa."],
+    "Pilkkasiipi": ["pilkkasiipi", "Koiraalla valkoinen silmänalus.", "Naaralla valkoinen täplä poskessa."],
     "Nokikana": "nokikana"
   },
   "Hanhet": {
-    "Merihanhi": "merihanhi",
-    "Metsähanhi": "metsahanhi",
-    "Lyhytnokkahanhi": "lyhytnokkahanhi",
-    "Tundrahanhi": "tundrahanhi",
-    "Kiljuhanhi": "kiljuhanhi",
+    "Merihanhi": ["merihanhi", "Muita hanhia vaaleampi yleisväri."],
+    "Metsähanhi": ["metsahanhi", "Merihanhea selvästi tummempi yleisväri.", "Lennossa siivet yksivärisen tummat, ei rajaa kuten merihanhella."],
+    "Lyhytnokkahanhi": ["lyhytnokkahanhi", "Lyhyempi kaula ja nokka.", "Pään ja kaulan etuosat tummat.", "Musta nokka, kapea vaaleanpunainen pystyvyö."],
+    "Tundrahanhi": ["tundrahanhi", "Vanhoilla yksilöillä valkoinen otsakilpi.", "Vatsassa mustat laikut.", "Nokka yksivärinen hailakka."],
+    "Kiljuhanhi": ["kiljuhanhi", "Pää pyöreä.", "Nokka lyhyt.", "Kiljuhanhea muistuttava mutta tummempi.", "Vatsassa mustat laikut.", "Keltainen silmärengas!", "Valkoinen otsakilpi."],
     "Kanadanhanhi": "kanadanhanhi",
     "Valkoposkihanhi": "valkoposkihanhi",
-    "Sepelhanhi": "sepelhanhi"
+    "Sepelhanhi": ["sepelhanhi", "Pää kaula ja rinta mustat kauttaaltaan.", "Kaulan sivuilla valkoinen sepel vanhemmilla yksilöillä."]
   },
   "Varislinnut": {
     "Varis": "varis",
     "Mustavaris": "mustavaris",
-    "Naakka": "naakka",
-    "Korppi": "korppi",
+    "Naakka": ["naakka", "Vaalea iiris (vert. korppi)."],
+    "Korppi": ["korppi", "Tummanmusta väritys.", "Musta iiris."],
     "Harakka": "harakka"
   },
   "Rastaat": {
-    "Räkättirastas": "rakattirastas",
-    "Kulorastas": "kulorastas",
-    "Laulurastas": "laulurastas",
-    "Punakylkirastas": "punakylkirastas"
+    "Räkättirastas": ["rakattirastas", "Suuri koko.", "Valkoiset kainalot.", "Pitkä pyrstö.", "Väriraja rinnan ja vatsan välillä."],
+    "Kulorastas": ["kulorastas", "Suuri koko.", "Valkoiset kainalot.", "Pitkä pyrstö.", "Räkättirastaan näköinen, yksivärisempi."],
+    "Laulurastas": ["laulurastas", "Oranssi kainalo.", "Pienempi kuin räkätti- tai kulorastas."],
+    "Punakylkirastas": ["punakylkirastas", "Pienempi kuin räkätti- tai kulorastas."]
   },
   "Muut linnut": {
     "Ristisorsa": "ristisorsa",
@@ -99,25 +99,41 @@
     "Taivaanvuohi": "taivaanvuohi"
   },
   "Metsäkanalinnut": {
-    "Metso": "metso",
-    "Teeri": "teeri",
-    "Pyy": "pyy",
-    "Riekko": "riekko",
-    "Kiiruna": "kiiruna"
+    "Metso": ["metso", "Koiraalla viuhkamainen pyrstö.", "Naaraalla 'leukaparta' verrattuna teerinaaraaseen.", "Naaras värikkäämpi kuin teeri. Punainen rinta."],
+    "Teeri": ["teeri", "Kukko on sinertävä, metso musta.", "Naaras yksivärisempi kuin metsonaaras eli koppelo."],
+    "Pyy": ["pyy", "Pieni, pyöreä.", "Suomukuviot.", "Pyrstössä leveä musta kärkivyö."],
+    "Riekko": ["riekko", "Talvella valkoinen.", "Valkoiset siivet ja vatsa."],
+    "Kiiruna": ["kiiruna", "Talvella valkoinen.", "Valkoiset siivet ja vatsa.", "Riekkoon ero koiraalla musta juova silmän ja nokan välissä.", "Riekkoa harmaampi."]
   },
   "Peltokanalinnut": {
     "Peltopyy": "peltopyy",
-    "Fasaani": "fasaani"
+    "Fasaani": ["fasaani", "asdasd"]
   },
   "Kyyhkyt": {
-    "Sepelkyyhky": "sepelkyyhky",
-    "Uuttukyyhky": "uuttukyyhky",
+    "Sepelkyyhky": ["sepelkyyhky", "Valkoinen sepel kaulalla."],
+    "Uuttukyyhky": ["uuttukyyhky", "Pienempi ja lyhytpyrstöisempi kuin sepelkyyhkly.", "Ei sepeltä kaulalla."],
     "Kesykyyhky": "kesykyyhky"
   },
   "Lokit": {
-    "Merilokki": "merilokki",
-    "Selkälokki": "selkalokki",
-    "Harmaalokki": "harmaalokki",
-    "Kalalokki": "kalalokki"
+    "Merilokki": ["merilokki", "Valkoiset täplät siipien kärjissä.", "Siipien valkoinen takareuna kärkiin saakka.", "Jalat haalean pinkit."],
+    "Selkälokki": ["selkalokki", "Keltaiset jalat vert. merilokki"],
+    "Harmaalokki": ["harmaalokki", "Selkä harmaa.", "Keltainen iiris."],
+    "Kalalokki": ["kalalokki", "Selkä harmaa.", "Ei punaista laikkua nokassa.", "Silmä tumma `nappi`.", "Pää pyöreä."]
+  },
+  "Haukat": {
+    "Varpushaukka": ["varpushaukka", "Pienikokoinen.", "Lyhyet siivet, pitkä pyrstö.", "Päältä ruskea tai harmaa, alta tiheään poikkiviiruinen."],
+    "Tuulihaukka": ["tuulihaukka", "Selkäpuoli punertavan ruskea.", "Pieni, varpushaukkaa pitempi."],
+    "Hiirihaukka": ["hiirihaukka", "Keskikokoinen.", "Tumman ruskea yleensä.", "Siiven takaraunaa alapuolella tumma reunus."],
+    "Mehiläishaukka": "mehilaishaukka",
+    "Sinisuohaukka": ["sinisuohaukka", "Koiras vaalena siniharmaa.", "Mustat siivenkärjet.", "Pyrstön tyvi päältä valkoinen."],
+    "Sääksi": ["saaksi", "Suurikokoinen.", "Pitkät kulmalle taipuneet siivet.", "Valkoinen alapuoli."],
+    "Ruskosuohaukka": "ruskosuohaukka",
+    "Piekana": ["piekana", "Vaalea."],
+    "Nuolihaukka": "nuolihaukka",
+    "Kanahaukka": "kanahaukka",
+    "Ampuhaukka": "ampuhaukka",
+    "Muuttohaukka": "muuttohaukka",
+    "Merikotka": "merikotka",
+    "Maakotka": "maakotka"
   }
 }

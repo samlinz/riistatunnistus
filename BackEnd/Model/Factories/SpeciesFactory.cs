@@ -15,6 +15,7 @@ namespace BackEnd.Model.Factories {
 		internal static Species GetSpecies(SpeciesMapping speciesMapping, SpeciesClass speciesClass) {
 			String name = speciesMapping.SpeciesName;
 			String speciesdirectoryName = speciesMapping.SpeciesImageDirectory;
+			IEnumerable<string> speciesHints = speciesMapping.SpeciesHints.ToArray();
 			String directory = Path.Combine(Constants.ImageDirectory, speciesdirectoryName);
 
 			Logger.Debug($"Building species ${name}");
@@ -39,7 +40,7 @@ namespace BackEnd.Model.Factories {
 				speciesClass
 			};
 
-			return new Species(speciesImages.AsReadOnly(), name, speciesClasses);
+			return new Species(speciesImages.AsReadOnly(), name, speciesClasses, speciesHints);
 		}
 	}
 }

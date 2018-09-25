@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BackEnd;
@@ -118,8 +119,13 @@ namespace RiistaTunnistusOhjelma {
 			ChangeUI(Close);
 		}
 
-		internal void WrongAnswer(string correct) {
-			string text = $"Oikea vastaus oli {correct.ToUpperInvariant()}";
+		internal void WrongAnswer(string correct, string[] hints) {
+			string text = $"Oikea vastaus oli {correct.ToUpperInvariant()}.";
+
+			if (hints.Length > 0) {
+				text += "\r\n\r\nVinkit:\r\n";
+				text += hints.Aggregate((t1, t2) => $"{t1}\r\n{t2}");
+			}
 
 			_soundPlayer.PlaySound(SoundEffect.Wrong);
 			MessageBox.Show(text, "Väärä vastaus!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

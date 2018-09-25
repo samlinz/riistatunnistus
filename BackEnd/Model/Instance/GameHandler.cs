@@ -51,7 +51,7 @@ namespace BackEnd.Model.Instance {
 		// Events
 		internal event Action QuestionTimeout;
 		internal event Action AnswerCorrect;
-		internal event Action<string> AnswerWrong;
+		internal event Action<string, string[]> AnswerWrong;
 
 		/// <summary>
 		/// Handle choice made from frontend.
@@ -158,7 +158,9 @@ namespace BackEnd.Model.Instance {
 						// Call UI to inform the user about answer correctness.
 						if (previousQuestion.Correct)
 							AnswerCorrect();
-						else AnswerWrong(previousQuestion.CorrectAnswer);
+						else AnswerWrong(
+							previousQuestion.CorrectAnswer
+							, previousQuestion.Hints);
 					} else {
 						throw new InvalidOperationException("Previous question was not marked as done.");
 					}

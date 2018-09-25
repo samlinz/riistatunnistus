@@ -24,6 +24,11 @@ namespace BackEnd.Model.GameInstance {
 		public bool Correct { get; set; }
 
 		/// <summary>
+		/// Hints for the species.
+		/// </summary>
+		public string[] Hints { get; set; }
+
+		/// <summary>
 		/// Expected answer.
 		/// </summary>
 		public string CorrectAnswer { get; set; }

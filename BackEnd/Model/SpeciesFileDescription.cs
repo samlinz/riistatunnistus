@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -16,6 +17,7 @@ namespace BackEnd.Model {
 	internal class SpeciesMapping {
 		public String SpeciesName { get; set; }
 		public String SpeciesImageDirectory { get; set; }
+		public IEnumerable<string> SpeciesHints { get; set; }
 	}
 
 	internal class SpeciesFileDescriptionConverter : JsonConverter {
@@ -45,12 +47,28 @@ namespace BackEnd.Model {
 
 				JObject classSpeciesMappings = (JObject) classMapping.Value;
 				foreach (JProperty speciesMapping in classSpeciesMappings.Children<JProperty>()) {
-					if (speciesMapping.Value.Type != JTokenType.String)
-						continue;
+					string speciesPath;
+					IEnumerable<string> speciesHints = null;
+
+					JTokenType tokenType = speciesMapping.Value.Type;
+
+					if (tokenType  == JTokenType.Array) {
+						JArray childArray = speciesMapping.Value as JArray;
+						if (childArray == null)
+							throw new InvalidOperationException("Could not convert property value to array.");
+						speciesPath = childArray.First.ToObject<string>();
+						speciesHints = childArray
+							.Skip(1)
+							.Select(t => t.ToObject<string>())
+							.ToList();
+					} else if (tokenType == JTokenType.String) {
+						speciesPath = speciesMapping.Value.ToObject<string>();
+					} else continue;
 
 					SpeciesMapping species = new SpeciesMapping {
 						SpeciesName = speciesMapping.Name,
-						SpeciesImageDirectory = speciesMapping.Value.ToObject<string>()
+						SpeciesImageDirectory = speciesPath,
+						SpeciesHints = speciesHints?.ToList() ?? new List<String>()
 					};
 
 					speciesClass

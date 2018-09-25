@@ -16,7 +16,7 @@ namespace BackEnd.Presenter {
 		public abstract void OnNewQuestion(Image image, string[] alternatives, string correct);
 		public abstract void OnEnd(GameResult finalResult);
 		public abstract void OnAnswerCorrect();
-		public abstract void OnAnswerWrong(string correct);
+		public abstract void OnAnswerWrong(string correct, string[] hints);
 		public abstract void OnTimeout();
 		public abstract void OnProgress(int percent);
 
